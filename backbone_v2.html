@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Frameri Shop UI with Backbone.js</title>
+
+  
+  <!-- ========= -->
+  <!--    CSS    -->
+  <!-- ========= -->
+  <link rel="stylesheet" type="text/css" href="css/kevin.css" />
+      <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/frameri.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <!-- ========= -->
+  <!-- Your HTML -->
+  <!-- ========= -->
+
+  <nav class="navbar navbar-default navbar-static-top navtext">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="images/logo.png"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">MEN</a></li>
+        <li><a href="#">WOMEN</a></li>
+        <li><a href="#">VIRTUAL TRY ON</a></li>
+        <li><a href="#">OUR STORY</a></li>
+        <li><a href="#">HOW-TO</a></li>
+        <li><a href="#" style="font-family:Libre Baskerville;font-size:11px;"><i>Give $50, Get $50</i></a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav2 navbar-right">
+        <li><a href="#">HELP</a></li>
+        <li><a href="#">LOGIN</a></li>
+        <li><a href="#">CART (0)</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- /Title-->
+    <div class="container frameri">
+      <div class="page-header">
+        <h1 class="text-center">Welcome to Tidal</h1>
+        <p class="text-center">Build your collection below.</p>
+      </div>
+    </div> <!-- /Title -->
+
+
+  <header id="header"></header>
+  <section id="store"></section>
+
+
+
+
+  <script type="text/template" id="review-step-template">
+    <h2>You have the following options!</h2>
+    <section id="review-glasses"></section>
+    <section>
+      <section class="review cart" id="review-frames"></section>
+      <section class="review cart" id="review-lenses"></section>
+      </section>
+  </script> 
+
+
+  <script type="text/template" id="review-glasses-item-template"></script> 
+
+  <script type="text/template" id="review-frame-item-template">
+    <p><%= name %><button value="Remove" class="destroy">Remove</button></p>
+  </script> 
+
+  <script type="text/template" id="review-lens-item-template">
+    <p><%= tint %>_<%= key %>_<%= type %><button value="Remove" class="destroy">Remove</button></p>
+  </script> 
+
+
+
+  <!-- ========= -->
+  <!-- Libraries -->
+  <!-- ========= -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/libraries/underscore-min.js" type="text/javascript"></script>
+  <script src="js/libraries/backbone-min.js" type="text/javascript"></script>
+  <script src="js/libraries/backbone.localStorage-min.js" type="text/javascript"></script> 
+  <script src="js/bootstrap.js"></script>
+
+  <!-- =============== -->
+  <!-- Javascript code -->
+  <!-- =============== -->
+
+  <script type="text/javascript">
+
+// Defining a namespace so this render function works
+var frameri = {};
+
+frameri.render = function(tmpl_name, tmpl_data) {
+    if ( !this.render.tmpl_cache ) { 
+        this.render.tmpl_cache = {};
+    }
+
+    if ( ! this.render.tmpl_cache[tmpl_name] ) {
+        var tmpl_dir = 'js/templates';
+        var tmpl_url = tmpl_dir + '/' + tmpl_name + '.html';
+
+        var tmpl_string;
+        $.ajax({
+            url: tmpl_url,
+            method: 'GET',
+            dataType:'html',
+            async: false,
+            success: function(data) {
+                tmpl_string = data;
+            }
+        });
+
+        this.render.tmpl_cache[tmpl_name] = _.template(tmpl_string);
+    }
+
+    return this.render.tmpl_cache[tmpl_name](tmpl_data);
+}
+
+
+  </script> 
+
+  <script src="js/models.js"></script>
+  <script src="js/collections.js"></script>
+
+
+  <script src="js/views/frames.js"></script>
+  <script src="js/views/lenses.js"></script>
+  <script src="js/views/key.js"></script>
+  <script src="js/views/review.js"></script>
+  <script src="js/views/step.js"></script>
+
+  <script src="js/app.js"></script>
+
+
+  
+</body>
+</html>

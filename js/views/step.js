@@ -1,4 +1,4 @@
-
+/*
 
 var StepView = Backbone.View.extend({
   tagName: 'section', // name of tag to be created     
@@ -163,3 +163,4 @@ var StepView = Backbone.View.extend({
       alert('this lens has no type')
   },
 });
+*/
