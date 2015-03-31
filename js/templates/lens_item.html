@@ -1,0 +1,12 @@
+<h5>Glasses Options for [<%= type %>] - [<%= tint %>]</h5>
+    <section class="glasses"><ul></ul></section>
+    <section class="view">
+      <h4>Lens <%- name %><a href="javascript:void(0)" class="destroy">Remove</a></h4>
+      <p>Type Options</p>
+      <input type="radio" class="type" name="lens-type-<%= id %>" value="rx" <%= type=='rx' ? 'checked' : '' %>>Rx
+      <input type="radio" class="type" name="lens-type-<%= id %>" value="nonrx" <%= type=='nonrx' ? 'checked' : '' %> >nonRX
+      <p>Tint Options</p>
+      <input type="radio" class="tint" name="lens-tint-<%= id %>" value="optical" <%= tint=='optical' ? 'checked' : '' %>>Optical
+      <input type="radio" class="tint" name="lens-tint-<%= id %>" value="copper" <%= tint=='copper' ? 'checked' : '' %>>Copper
+      <input type="radio" class="tint" name="lens-tint-<%= id %>" value="zinc" <%= tint=='zinc' ? 'checked' : '' %>>Zinc
+    </section>

@@ -1,0 +1,9 @@
+<h5>Glasses Options for [<%= type %>] - [<%= tint %>]</h5>
+    <section class="glasses"><ul></ul></section>
+    <section class="view">
+      <h4>Lens <%- name %><a href="javascript:void(0)" class="destroy">Remove</a></h4>
+      <p>Key Options</p>
+      <input type="radio" class="key" name="lens-key-<%= id %>" value="crystal" <%= key=='crystal' ? 'checked' : '' %>>Crystal
+      <input type="radio" class="key" name="lens-key-<%= id %>" value="topaz" <%= key=='topaz' ? 'checked' : '' %>>Topaz
+      <input type="radio" class="key" name="lens-key-<%= id %>" value="onyx" <%= key=='onyx' ? 'checked' : '' %>>Onyx
+    </section>
