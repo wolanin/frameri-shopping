@@ -1,0 +1,68 @@
+
+
+
+/*.container.frameri{border:solid 2px green;}
+
+.container.frameri * {border:solid 1px #ccc;}
+.container.frameri div {border:solid 1px #000;}*/
+
+
+h1{}
+h2{}
+h3{}
+h4{}
+
+.bg-cloud {
+  background-color: #ecf0f1;
+}
+
+.bg-clouds {
+  background-color: #ecf0f1;
+  margin-top: 20px;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+}
+
+.bg-clouds-completed {
+  background-color: #ecf0f1;
+  margin-top: 20px;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.bg-white {
+  background-color: #ffffff;
+  margin: 20px 8% 20px;
+  padding: 20px 5% 30px;
+}
+
+.product {
+width: 100%;
+}
+
+.lenses {
+  width: 80%;
+}
+
+.divider {
+  width: 90%;
+}
+
+.divider-sm {
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.products {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+
+
+
