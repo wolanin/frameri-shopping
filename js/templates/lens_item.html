@@ -38,17 +38,17 @@
 <p><strong>Choose the Type of Lenses - </strong>You can enter your prescription in later</p> 
     <div class="col-md-4">
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Prescription (Rx)
+        <input type="radio" class="type" name="lens-type-<%= id %>" value="rx" <%= type=='rx' ? 'checked' : '' %>>Prescription (Rx)
       </label>
     </div>
     <div class="col-md-4">
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Progressive
+        <input type="radio" class="type" name="lens-type-<%= id %>" value="progressive" <%= type=='progressive' ? 'checked' : '' %>>Progressive
       </label>
     </div>
     <div class="col-md-4">
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Non-Prescription (Non-Rx)
+        <input type="radio" class="type" name="lens-type-<%= id %>" value="nonrx" <%= type=='nonrx' ? 'checked' : '' %>>Non-Prescription (Non-Rx)
       </label>
     </div>              
 </div>       

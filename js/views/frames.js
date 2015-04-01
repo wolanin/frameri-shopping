@@ -24,13 +24,11 @@ frameri.FrameView = Backbone.View.extend({
   },      
   toggleSelected: function(){
     if(this.model.toggleSelected()){ // if true, add this frame to cart
-      var frame = new CartItem({name:this.model.get('name')})
-      
+     // var frame = new CartItem({name:this.model.get('name')})
     } else { // remove this frame from the cart
-      //console.log('removeing '+ this.model.get('name') + ' from cart')
-      var frame = storeView.cart.getByName(this.model.get('name'))
-
+      //var frame = storeView.cart.getByName(this.model.get('name'))
     }
+    
   }
 });
 
@@ -41,12 +39,15 @@ frameri.FramesStepView = Backbone.View.extend({
     'click .next': 'validateStep'
   },
   initialize: function(){
-    console.log(this.model.get('name'))
-  },
+    this.collection = new FrameList();
+    this.collection.on('change',this.validateStep,this);
+      },
   render: function(){
     $(this.el).html(this.template());
-    this.collection = new FrameList();
+    
     this.appendAllFrames();
+    this.validateStep(); // cant do this in init because the button elem does not exist yet
+
     return this; // for chainable calls, like .render().el
   },
   appendFrame : function(frame){
@@ -57,12 +58,14 @@ frameri.FramesStepView = Backbone.View.extend({
     this.collection.each(this.appendFrame,this)
   },
   validateStep : function (){
-    return;
-    if(this.collection.length <3) {
-      alert('unable to proceed to lenses, not enough frames chosen.')
-    } else {
-      this.model.save({state:'completed'})
-    }
+    console.log(this.collection.getSelected().length)
+    if(this.collection.getSelected().length <3) {
+       this.$el.find('.btn-continue').prop("disabled",true);
+       this.$el.find('.btn-continue').val('Choose at least 3 frames');
+      } else {
+        this.$el.find('.btn-continue').prop("disabled",false);
+        this.$el.find('.btn-continue').val('CONTINUE');
+      }
   },
   setState : function(state){
     $(this.el).removeClass();

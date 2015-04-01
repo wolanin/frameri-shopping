@@ -71,7 +71,9 @@ frameri.StoreView = Backbone.View.extend({
     this.collection = new Steps();  // new INSTANCE of steps
     this.render();
     this.updateStates();
-    this.collection.on('change',this.updateStates,this)
+    this.collection.on('change',this.updateStates,this);
+
+    
   },
     render: function(){
       // clear everything, this is probly bad!!
