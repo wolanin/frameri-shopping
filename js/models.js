@@ -13,9 +13,9 @@ var LensItem = Backbone.Model.extend({
     defaults: {
       name: 'default name',
       selected: false,
-      type: '',
-      tint:'',
-      key:''
+      type: 'rx',
+      tint:'optical',
+      key:'crystal'
 
     },
     toggleSelected: function(){

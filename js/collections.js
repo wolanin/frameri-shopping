@@ -12,11 +12,11 @@ var FrameList = Backbone.Collection.extend({
 //      this.create({step:1,name:'frames',state:'active',next:2});
     console.log('create frame list')
 
-    this.create({name:'Leon blue'})
-    this.create({name:'drebb blue'})
-    this.create({name:'mage red blue'})
-    this.create({name:'Leon red'})
-    this.create({name:'mage blue'})
+    this.create({sku:'tidal_leon_black',name:'Leon - Black'})
+    this.create({sku:'tidal_leon_granite',name:'Leon - Granite'})
+    this.create({sku:'tidal_drebbel_forest',name:'Drebbel - Forest'})
+    this.create({sku:'tidal_drebbel_fire',name:'Drebbel - Fire'})
+    this.create({sku:'tidal_magellan_cheetah',name:'Magellan - Cheetah'})
   },
   getSelectedd: function() {
       return this.filter(function( frame ) {

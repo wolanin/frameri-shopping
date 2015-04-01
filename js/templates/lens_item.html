@@ -1,12 +1,55 @@
-<h5>Glasses Options for [<%= type %>] - [<%= tint %>]</h5>
-    <section class="glasses"><ul></ul></section>
-    <section class="view">
-      <h4>Lens <%- name %><a href="javascript:void(0)" class="destroy">Remove</a></h4>
-      <p>Type Options</p>
-      <input type="radio" class="type" name="lens-type-<%= id %>" value="rx" <%= type=='rx' ? 'checked' : '' %>>Rx
-      <input type="radio" class="type" name="lens-type-<%= id %>" value="nonrx" <%= type=='nonrx' ? 'checked' : '' %> >nonRX
-      <p>Tint Options</p>
-      <input type="radio" class="tint" name="lens-tint-<%= id %>" value="optical" <%= tint=='optical' ? 'checked' : '' %>>Optical
-      <input type="radio" class="tint" name="lens-tint-<%= id %>" value="copper" <%= tint=='copper' ? 'checked' : '' %>>Copper
-      <input type="radio" class="tint" name="lens-tint-<%= id %>" value="zinc" <%= tint=='zinc' ? 'checked' : '' %>>Zinc
-    </section>
+<h3><%= name %> Set of Lenses&nbsp;&nbsp;&nbsp;[<a href="javascript:void(0)" class="destroy">x</a>]</h3>
+<p>Select an option below to see how each tint will look in your frames.</p>
+<div class="col-md-12">
+  <div class="row products">
+    <div class="glasses">
+      <div class="col-md-2"><img src="images/lens-<%= tint %>.png" class="product" style="padding-top:10px;"><h6 class="text-center"><%= tint %></h6></div>
+      <!-- append glasses here, with dynamic lenses -->
+  </div>  
+</div>
+
+<div class="col-md-12">
+  <p><strong>Choose the Tint - </strong>Choose between optical or sun varieties</p> 
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <input type="radio" class="tint" name="lens-tint-<%= id %>" value="optical" <%= tint=='optical' ? 'checked' : '' %>>Optical
+      </label>
+    </div>
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <input type="radio" class="tint" name="lens-tint-<%= id %>" value="copper" <%= tint=='copper' ? 'checked' : '' %>>Copper
+      </label>
+    </div>
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <input type="radio" class="tint" name="lens-tint-<%= id %>" value="zinc" <%= tint=='zinc' ? 'checked' : '' %>>Zinc
+      </label>
+    </div>  
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <input type="radio" class="tint" name="lens-tint-<%= id %>" value="iridium" <%= tint=='iridium' ? 'checked' : '' %>>Iridium
+      </label>
+    </div>              
+</div>
+
+<div class="col-md-12 text-center"><img src="images/divider-lg.png" class="divider-sm"></div>
+
+<div class="col-md-12">
+<p><strong>Choose the Type of Lenses - </strong>You can enter your prescription in later</p> 
+    <div class="col-md-4">
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Prescription (Rx)
+      </label>
+    </div>
+    <div class="col-md-4">
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Progressive
+      </label>
+    </div>
+    <div class="col-md-4">
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Non-Prescription (Non-Rx)
+      </label>
+    </div>              
+</div>       
+</div>

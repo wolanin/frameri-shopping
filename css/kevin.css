@@ -19,7 +19,7 @@
 
 
 
-section{border: solid 1px #ccc;margin:2px 8px;padding: 4px 12px}
+section{border: solid 1px #ccc;margin:0px;padding: 0px}
 
 section.active{border: solid 3px #000}
 section.valid{border: solid 1px green}

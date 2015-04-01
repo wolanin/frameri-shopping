@@ -1,5 +1,5 @@
 frameri.LensView = Backbone.View.extend({
-  tagName: 'li',
+  tagName: 'div',
  // template: _.template(frameri.render('lens_item', {})),  
   events:{
      'click .destroy': 'destroy',
@@ -49,9 +49,13 @@ frameri.LensView = Backbone.View.extend({
     //var lensView = new LensView({model: lens});
 
     // this will need to be its on view for sure, with events, maybe even the lens view
-   
-    this.$el.find('.glasses ul').append(glasses.get('name')+'_'+this.model.get('tint')); 
+    // but for now, just create an object from code
+    $img = $("<img>").addClass('product').attr('src',"https://d2958htcjkur1i.cloudfront.net/shop/photos/medium/tidal/"+glasses.get('sku')+"_"+this.model.get('tint')+"_crystal_front.jpg");
 
+    $div = $('<div>').addClass('col-md-3').append($img)
+
+    //this.$el.find('.glasses').append(glasses.get('name')+'_'+this.model.get('tint')); 
+    this.$el.find('.glasses').append($div); 
   },
 
 });
