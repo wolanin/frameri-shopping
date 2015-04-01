@@ -36,7 +36,31 @@ section.pending input{}
 
 
 
+header#header .step-header{border:solid 0px red;width: 500px;margin: 0 auto;display: inline-block;text-align: center;padding-bottom: 22px;  margin-left: 32%;}
+header#header .step{width: 100px;border:solid 0px black;float: left;margin: 5px 0px;border-bottom: solid 10px #ccc;}
 
-header#header .active{text-decoration: underline;}
+
+
+.circle{width: 40px;
+   height: 40px;display:inline-block;
+   background: #ccc; 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px;   padding-top: 12px;
+   border-radius: 70px;}
+
+.step .number{border: solid 0px #000;margin: 0px;padding: 1px;display: block;  margin-bottom: -34px;}
+
+
+header#header{  z-index: 9999;background: #fff;width: 100%}
+header#header.sticky{position: fixed;top:0;}
+
+header#header .container{border-top:solid 2px black;border-bottom:solid 2px black;}
+
+header#header .completed.step{border-color:#000;}
+header#header .active.step{border-color:#000;}
+
+.completed .circle{background-color:#000;color:white; }
+.active .circle{background-color:#000;color:white; }
+
 
 

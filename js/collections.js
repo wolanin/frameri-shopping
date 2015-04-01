@@ -67,6 +67,7 @@ var LensList = Backbone.Collection.extend({
       this.create({step:2,name:'lenses',state:'pending',next:3});
       this.create({step:3,name:'key',state:'pending',next:4});
       this.create({step:4,name:'review',state:'pending',next:false});
+      alert('WELCOME TO THE SHOPPING EXPERIENCE!');  //this should not block execution though
     },
     resett : function(){},
 

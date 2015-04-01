@@ -11,14 +11,16 @@ Backbone.sync = function(method, model, success, error){
 //var frameri = {};
 
   frameri.HeaderView = Backbone.View.extend({
-    tagName: 'header', // name of tag to be created     
+    //tagName: 'header', // name of tag to be created     
     el: $('#header'), // el attaches to existing element
     events: {
     },   
     initialize: function(){
-      //this.render();
+      this.collection.on('change',this.updateStates,this);
+
+      //this.appendAllSteps();
     },
-    render: function(){
+    renderr: function(){
       var activeState = '';
       var stepList = this.collection;
       var activeStepList = stepList.findByState('active');
@@ -27,6 +29,30 @@ Backbone.sync = function(method, model, success, error){
       this.$el.html(this.template);
       return this; // enable chained calls
     },
+    render : function(){
+
+      //this.template = _.template(frameri.render('header', this.model.toJSON()))
+      this.template = _.template(frameri.render('header', {}))
+
+      this.$el.html(this.template);
+
+      this.appendAllSteps();
+
+      return this; // enable chained calls
+    },
+    updateStates : function(){
+      this.render()
+    },
+    appendAllSteps:function(){
+      this.collection.each(this.appendStep,this);
+
+    },
+    appendStep : function(step){
+      stepTemplate = _.template(frameri.render('header_step_item', step.toJSON()))
+
+      $(this.el).find('.step-header').append(stepTemplate)
+
+    }
   });
 
 
@@ -49,6 +75,7 @@ frameri.StoreView = Backbone.View.extend({
   },
     render: function(){
       // clear everything, this is probly bad!!
+
       this.$el.empty();
       var self = this;
 
@@ -108,6 +135,8 @@ frameri.StoreView = Backbone.View.extend({
       this.lensesStepView.setState(lensStep.get('state'))
 
       this.keyStepView.setState(this.collection.at(2).get('state'))
+
+
       
 
     },
