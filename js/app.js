@@ -65,6 +65,7 @@ frameri.StoreView = Backbone.View.extend({
     'click .lenses.previous':  'backToFrames',
     'click .key.next':  'validateKeyStep',
     'click .key.previous':  'backToLenses',
+    'click .review.previous':  'backToKeyStep',
   },
   initialize: function(){
     _.bindAll(this, 'render', 'addItem', 'appendStep'); // every function that uses 'this' as the current object should be in here
@@ -73,7 +74,7 @@ frameri.StoreView = Backbone.View.extend({
     this.updateStates();
     this.collection.on('change',this.updateStates,this);
 
-    
+
   },
     render: function(){
       // clear everything, this is probly bad!!
@@ -97,6 +98,10 @@ frameri.StoreView = Backbone.View.extend({
       // Render Key Step
       this.keyStepView = new frameri.KeyStepView();
       this.$el.append(this.keyStepView.render().el);
+
+      // Render Review Step
+      this.reviewStepView = new frameri.ReviewStepView();
+      this.$el.append(this.reviewStepView.render().el);
 
 
       // there was a loop here.
@@ -137,6 +142,7 @@ frameri.StoreView = Backbone.View.extend({
       this.lensesStepView.setState(lensStep.get('state'))
 
       this.keyStepView.setState(this.collection.at(2).get('state'))
+      this.reviewStepView.setState(this.collection.at(3).get('state'))
 
 
       
@@ -171,13 +177,13 @@ frameri.StoreView = Backbone.View.extend({
       if(frameList.length <3) {
         alert('unable to proceed to lenses, not enough frames chosen.')
       } else {
-        this.collection.at(0).save({state:'completed'}); // this should fire something else
-        this.collection.at(1).save({state:'active'}); 
+        this.collection.at(2).save({state:'completed'}); // this should fire something else
+        this.collection.at(3).save({state:'active'}); 
       }
     },
     backToKeyStep : function(){
-      this.collection.at(0).save({state:'active'});
-      this.collection.at(1).save({state:'pending'});
+      this.collection.at(2).save({state:'active'});
+      this.collection.at(3).save({state:'pending'});
     }
   });
 
