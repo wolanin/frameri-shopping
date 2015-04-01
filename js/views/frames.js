@@ -1,5 +1,5 @@
 frameri.FrameView = Backbone.View.extend({
-  tagName: 'li',
+  tagName: 'div',
   //template: _.template($('#frame-item-template').html()),
   //template: _.template(frameri.render('frame_item', {})),  
   events:{
