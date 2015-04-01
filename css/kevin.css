@@ -24,7 +24,7 @@ section{border: solid 0px #ccc;margin:0px;padding: 0px}
 section.active{border: solid 0px #000}
 section.valid{border: solid 1px green}
 section.invalid{border: solid 1px red}
-section.pending{opacity:0.2;}
+section.pending{opacity:0.3;pointer-events:none;}
 section.completed{  height: 101px;overflow: hidden;}
 
 
