@@ -14,6 +14,14 @@ h1 {
   line-height: 1.231;
 }
 
+h2 {
+  color: #202430;
+  font-family: "Libre Baskerville", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  line-height: 1.231;
+}
+
 h3 {
   color: #202430;
   font-family: "Libre Baskerville", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -449,4 +457,10 @@ fieldset[disabled] .btn-continue-unclick.active {
 
 .magnify {
   cursor: url("http://s13.postimg.org/kh9obdn0j/cursor_magnify.png"), auto;
+}
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
